@@ -3,10 +3,25 @@
 	$autoLoader = new AutoLoader();
 	$ctrl = new controller\Controller();
 	$ctrl->loadController();
-
-	if (isset($ctrl->get->param1)) {
-		$ctrl->includeContent($ctrl->get->param1, $ctrl->get->param2);
-	}else{
-		$ctrl->includeContent('', '');
-	}
 ?>
+<html>
+	<head>
+		<?php 
+		$ctrl->includeStructure('head'); 
+		?>
+	</head>
+	<body class="pace-done skin-blue">
+
+		<?php
+		$ctrl->includeStructure('navHeader');
+		$ctrl->includeStructure('navSideBar');
+		?>
+		<div id="main" class="container-fluid">
+		    <div class="row-fluid">
+				<?php
+				$ctrl->includeStructure('content');
+				?>
+		    </div>
+		</div>
+	</body>
+</html>

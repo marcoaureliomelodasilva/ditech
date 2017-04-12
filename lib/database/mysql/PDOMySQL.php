@@ -1,17 +1,7 @@
 <?php namespace lib\database\mysql;
 use \PDO as PDO;
 class PDOMySQL{
-	
-	var $__connection;
-	var $__dbinfo;
-	var $__persistent = false;
-	var $__errorCode = '';
-	var $__errorInfo = Array('');
-	var $__result = null;
-	var $__query = '';
-	var $__fetchType = PDO::FETCH_BOTH;
-	var $__boundParams = Array();
-	
+		
 	public $conn;
 	private $dbname;    
 	private $host;      
@@ -21,58 +11,35 @@ class PDOMySQL{
 	private $configDb;
 
 	public function __construct($string_conn='') {
-	
-		$banco='mysql';
-		$ambiente='desenv';
+		$this->defineDataBase('desenv', 'agenda');	
+	}
 
-			$this->configDb	= array(
-				$banco => array(
-					$ambiente => array(
-						'dbname' => '',
-						'host' => 'localhost',
-						'user' => 'root',
-						'password' => '',
-						'port' => 5433,
-						'attr' => array(
-			                PDO::ATTR_TIMEOUT => 1,
-			                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-			            )
-					)
-				)
-			);
+    public function defineDataBase($ambiente='desenv', $dbname='default'){	
+    	$this->defineAmbiente = $ambiente;
+		$this->defineDbname = $dbname;
 
-		if (strripos($_SERVER['HTTP_HOST'], 'marcoaurelio') || strripos($_SERVER['HTTP_HOST'], 'local')) {
-
-		}else{
-			$this->configDb	= array(
-				$banco => array(
-					$ambiente => array(
-						//'dbname' => 'gostinhodepimenta',
-						//'host' => 'pgsql.gostinhodepimenta.com.br',
-						//'user' => 'gostinhodepimenta',
-						//'password' => 'gp11335577',
-						//'port' => 5432
-					)
-				)
-			);
+		$fileConfig = '../lib/database/mysql/config.php';
+		if (file_exists($fileConfig)) {
+			$jsonConfig = file_get_contents($fileConfig);
+			$jsonConfig = json_decode($jsonConfig, true);
 		}
 
-		$this->host     = $this->configDb[$banco][$ambiente]['host'];
-		$this->port     = $this->configDb[$banco][$ambiente]['port'];
-		$this->dbname   = $this->configDb[$banco][$ambiente]['dbname'];
-		$this->user     = $this->configDb[$banco][$ambiente]['user'];
-		$this->password = $this->configDb[$banco][$ambiente]['password'];
-		$this->attr = $this->configDb[$banco][$ambiente]['attr'];
+		$this->configDb=$jsonConfig[$this->defineAmbiente][$this->defineDbname];
+		$this->host     = $this->configDb['host'];
+		$this->port     = $this->configDb['port'];
+		$this->dbname   = $this->configDb['dbname'];
+		$this->user     = $this->configDb['user'];
+		$this->password = $this->configDb['password'];
+		//$this->attr = $this->configDb[$banco][$ambiente]['attr'];
 
 	    try {
-			$string_conn="mysql:dbname=coffeespot;host=localhost";
+			$string_conn="mysql:dbname=$this->dbname;host=$this->host;port=$this->port;user=$this->user;
+			password=$this->password;";
 	        $this->conn=new PDO($string_conn, $this->user, $this->password);
 			$this->constantes();
 	    } catch(PDOException $e) {
-	        die("Erro: <code>" . $i->getMessage() . "</code>");
+	        die("Erro: <code>" . $e->getMessage() . "</code>");
 	    } 
-	    // return ($this->conn);
-
 	}
 
     /*Evita que a classe seja clonada*/

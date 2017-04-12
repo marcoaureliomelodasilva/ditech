@@ -27,7 +27,7 @@ class Controller
 		}
 	}
 
-	public function includeStructure($pathFile='', $nameFile='')
+	public function includeStructure($pathFile='', $nameFile='index')
 	{
 		$file = $_SERVER["DOCUMENT_ROOT"].'/structure/'.$pathFile.'/'.$nameFile.'.php';
 		$file = $this->converterString($file,array('-' => '_' , '//' => '/'));
