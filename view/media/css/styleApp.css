@@ -2802,3 +2802,13 @@ Component: timeline
 .pace-inactive {
   display: none;
 }
+
+#login-box .header{
+    background-color: #3c8dbc
+}
+#login-box .btn.btn-block{
+    background-color: #3c8dbc!important;
+}
+#login-box .btn.btn-block:hover{
+    background-color: #367fa9!important;
+}

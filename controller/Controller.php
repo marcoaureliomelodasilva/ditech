@@ -92,5 +92,15 @@ class Controller
 		return ($bool==true) ? $true : $false ;
 	}
 
+	public function headerLocation($destino, $permanent = false)
+	{
+	    if (headers_sent() === false)
+	    {
+	    	header('Location: ' . $destino, true, ($permanent === true) ? 301 : 302);
+	    }else{
+			echo '<script type="text/javascript">window.location.href = "'.$destino.'"</script>';
+	    }
+	}
+
 }
 ?>

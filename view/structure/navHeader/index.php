@@ -14,8 +14,8 @@
             <ul class="nav navbar-nav">
                 <!-- Botao de logout -->
                 <li class="dropdown user user-menu" style="margin-right: 7px;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-close"></i>
+                    <a href="/login/sair" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-close"></i>
                         <span>Sair</span>
                     </a>
                 </li>
