@@ -1,7 +1,6 @@
 <? 
-    $this->get->param3=30;
+    $idUser = (isset($_SESSION["idUser"]))? $_SESSION["idUser"] : 0 ;
     require_once('action.php'); 
-    $idUser = (isset($this->get->param3))? $this->get->param3 : 0 ;
     $data = $model->selectUsersId($idUser);
     $data=$data[0];
 ?>
