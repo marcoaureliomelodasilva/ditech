@@ -27,25 +27,6 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>Usuarios</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="/perfil/meus-dados">
-                            <i class="fa fa-edit"></i> Meus dados
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/perfil/Alter senha">
-                            <i class="fa fa-list"></i> Lista de usuários
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
                     <i class="fa fa-calendar"></i> 
                     <span>Agendamento</span>
                     <i class="fa fa-angle-left pull-right"></i>
@@ -59,6 +40,25 @@
                     <li>
                         <a href="pages/UI/icons.html">
                             <i class="fa fa-list"></i> Meus agendamentos
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Meu perfil</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/meu-perfil/meus-dados">
+                            <i class="fa fa-edit"></i> Meus dados
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/meu-perfil/alterar-senha">
+                            <i class="fa fa-list"></i> Alterar senha
                         </a>
                     </li>
                 </ul>

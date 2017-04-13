@@ -3,6 +3,7 @@
 	$autoLoader = new AutoLoader();
 	$ctrl = new controller\Controller();
 	$ctrl->loadController();
+	
 ?>
 <html>
 	<head>
