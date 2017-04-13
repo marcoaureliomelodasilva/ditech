@@ -2,7 +2,7 @@
 
 use lib\database\mysql\PDOMySQL;
 
-class Admin
+class AdminUser
 {
 
 	private $ctrl;

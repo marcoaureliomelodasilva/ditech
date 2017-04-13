@@ -1,5 +1,5 @@
 <?
-$admin = new model\Admin();
+$admin = new model\AdminUser();
 
 $this->setPostArray($_POST);
 // echo $this->post->action;
