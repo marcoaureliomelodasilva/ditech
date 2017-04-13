@@ -8,11 +8,9 @@
             </div>
             <div class="pull-left info">
                 <p>Olá, Fulano</p>
-
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
@@ -21,8 +19,6 @@
                 </span>
             </div>
         </form>
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="index.html">
@@ -37,16 +33,15 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="pages/charts/morris.html">
-                            <i class="fa fa-edit"></i> Novo usuário
+                        <a href="/perfil/meus-dados">
+                            <i class="fa fa-edit"></i> Meus dados
                         </a>
                     </li>
                     <li>
-                        <a href="pages/charts/morris.html">
+                        <a href="/perfil/Alter senha">
                             <i class="fa fa-list"></i> Lista de usuários
                         </a>
                     </li>
-
                 </ul>
             </li>
             <li class="treeview">
@@ -68,7 +63,25 @@
                     </li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-calendar"></i> 
+                    <span>Administrador</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/admin/listar-usuarios">
+                            <i class="fa fa-users"></i>Listar usuários
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/listar-salas">
+                            <i class="fa fa-check-square-o"></i>Listar Salas
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
-    <!-- /.sidebar -->
 </aside>

@@ -67,10 +67,29 @@ class Controller
 		}
 	}
 
+	public function setPostArray($array)
+	{
+		$this->post = new stdClass();
+		$this->post->action='';
+		if (is_array($array)) {
+			foreach ($array as $attr => $value) {
+				$attr = $this->converterString($attr,array('-' => '_'));
+				if ($value!='') {
+					$this->post->{$attr} = $value;
+				}
+			}
+		}
+	}
+
 	public function converterString($str,$filtro)
 	{
 		$result = strTr($str, $filtro);
 		return $result;
+	}
+
+	public function boolResult($bool,$true,$false)
+	{
+		return ($bool==true) ? $true : $false ;
 	}
 
 }

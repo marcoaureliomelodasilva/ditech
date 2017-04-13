@@ -1,5 +1,5 @@
 <?
-$v = new model\home();
+$v = new model\ListarUsuarios();
 // echo '<pre>';
 // var_dump($v->listAll());
 // echo '</pre>';
