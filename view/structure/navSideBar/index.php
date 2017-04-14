@@ -22,19 +22,24 @@
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="/agenda/listar-agenda-hoje">
-                    <i class="fa fa-table"></i> <span>Agenda de hoje</span>
+                    <i class="fa fa-bell-o"></i> <span>Hoje</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="/agenda">
+                    <i class="fa fa-calendar"></i> <span>Calendário</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-calendar"></i> 
-                    <span>Agendamento</span>
+                    <i class="fa fa-table"></i> 
+                    <span>Agendamentos</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li>
                         <a href="/agenda/listar-agenda">
-                            <i class="fa fa-edit"></i> Toda agenda
+                            <i class="fa fa-list"></i>Ver todos
                         </a>
                     </li>
                     <li>
@@ -46,7 +51,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-user-o"></i>
                     <span>Meu perfil</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -58,14 +63,14 @@
                     </li>
                     <li>
                         <a href="/meu-perfil/alterar-senha">
-                            <i class="fa fa-list"></i> Alterar senha
+                            <i class="fa fa-lock"></i> Alterar senha
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-calendar"></i> 
+                    <i class="fa fa-user-secret"></i> 
                     <span>Administrador</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -77,7 +82,7 @@
                     </li>
                     <li>
                         <a href="/admin/listar-salas">
-                            <i class="fa fa-check-square-o"></i>Listar Salas
+                            <i class="fa fa-list"></i>Listar Salas
                         </a>
                     </li>
                 </ul>
