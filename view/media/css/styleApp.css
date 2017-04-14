@@ -2812,3 +2812,11 @@ Component: timeline
 #login-box .btn.btn-block:hover{
     background-color: #367fa9!important;
 }
+
+.hour_ag{
+  width: 100px;
+}
+.date_ag{
+  max-width: 200px;
+  min-width: 165px;
+}

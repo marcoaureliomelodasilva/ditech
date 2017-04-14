@@ -33,13 +33,13 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="pages/UI/general.html">
-                            <i class="fa fa-edit"></i> Novo agendamento
+                        <a href="/agenda/listar-agenda">
+                            <i class="fa fa-edit"></i> Toda agenda
                         </a>
                     </li>
                     <li>
-                        <a href="pages/UI/icons.html">
-                            <i class="fa fa-list"></i> Meus agendamentos
+                        <a href="/agenda/listar-minha-agenda">
+                            <i class="fa fa-user"></i> Minha agenda
                         </a>
                     </li>
                 </ul>

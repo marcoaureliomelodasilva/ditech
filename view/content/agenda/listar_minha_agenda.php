@@ -1,17 +1,18 @@
 <? 
+    $idUser = (isset($_SESSION["idUser"]))? $_SESSION["idUser"] : 0 ;
     require_once('action.php'); 
-    $data = $admin->selectUsersAll();
+    $data = $model->selectSchedulingIdUser($idUser);
 ?>
 <div class="col-md-6">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Lista de usuários</h3>
+            <h3 class="box-title">Minha Agenda</h3>
             <div class="box-tools pull-right">
-                <a href="/admin/cadastrar-usuario" style="color:#FFF;" class="btn btn-primary btn-sm">
-                    Novo usuário
+                <a href="/agenda/cadastrar-agenda" style="color:#FFF;" class="btn btn-primary btn-sm">
+                    Novo Agendamento
                 </a>
             </div>
-        </div>
+        </div> 
         <div class="box-body">
             <?php 
                 if (isset($this->get->param3) && $this->get->param3=='excluir') {
@@ -26,31 +27,27 @@
                 </div>
                 <div class="box-body clearfix">
                     <p>
-                        Tem certeza que deseja excluir este usuário e seus agendamentos?
+                        Tem certeza que deseja excluir este agendamentos?
                     </p>
                     <div class="box-tools pull-right">
-                            <form action="/admin/listar-usuarios/<?=$this->get->param4; ?>" method="post">
-                            <a href="/admin/listar-usuarios/<?=$this->get->param4; ?>" class="btn btn-primary btn-flat">
-                                Cancelar
-                            </a>
-                            <button type="submit" name="action" value="exclui-usuario" class="btn btn-danger btn-flat">
-                                Excluir
-                            </button>
-                            </form>
-                       
+                        <form action="/agenda/listar-minha-agenda/<?=$this->get->param4; ?>" method="post">
+                        <a href="/agenda/listar-minha-agenda" class="btn btn-primary btn-flat">Cancelar</a>
+                        <button type="submit" name="action" value="exclui-agenda" class="btn btn-danger btn-flat">Excluir</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <?php      
                 }
-            ?>  
+            ?>
             <div  style="overflow: auto;height: 400px;">
-            <table class="table table-bordered table-responsive table-condensed" >
+            <table class="table table-bordered table-responsive table-condensed">
                 <tbody>
                     <tr>
-                        <th style="width: 40px">Cod</th>
-                        <th>Nome</th>
-                        <th style="width: 70px">Status</th>
+                        <th style="width: 40px">#</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Sala</th>
                         <th style="width: 70px">Editar</th>
                         <th style="width: 70px">Excluir</th>
                     </tr>
@@ -60,25 +57,17 @@
                             foreach ($data as $key => $value) {
                     ?>   
                     <tr>
-                        <td><?=$value->use_no; ?></td>
+                        <td><?=$i; ?></td>
+                        <td><?=date('d/m/Y', strtotime($value->date)) ?></td>
+                        <td><?=$value->hour; ?></td>
+                        <td><?=$value->room_name; ?></td>
                         <td>
-                            <a href="/admin/editar-usuario/<?=$value->use_no; ?>" class="item">
-                                <?=$value->full_name; ?>
-                            </a>
-                        </td>
-                        <td>
-                            <div name="status" class="col-md-12 ">
-                                <i class="fa fa-2 <?=$this->boolResult($value->status,'fa-eye','fa-eye-slash');?>" aria-hidden="true" style="color: <?=$this->boolResult($value->status,'#00a53a','#f56954');?> !important;"></i>
-                            </div>
-                            
-                        </td>
-                        <td>
-                            <a href="/admin/editar-usuario/<?=$value->use_no; ?>" class="btn btn-primary btn-sm col-md-12">
+                            <a href="/agenda/editar-agenda/<?=$value->res_no; ?>" class="btn btn-primary btn-sm col-md-12">
                                 <i class="fa fa-edit" aria-hidden="true" style="color: #FFF !important;"></i>
                             </a>
                         </td>
-                        <td>
-                            <a href="/admin/listar-usuarios/excluir/<?=$value->use_no; ?>" class="btn btn-danger btn-sm col-md-12">
+                        <td>                       
+                            <a href="/agenda/listar-minha-agenda/excluir/<?=$value->res_no; ?>" class="btn btn-danger btn-sm col-md-12">
                                 <i class="fa fa-close" aria-hidden="true" style="color: #FFF !important;"></i>
                             </a>                          
                         </td>
