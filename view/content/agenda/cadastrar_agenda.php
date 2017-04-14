@@ -10,13 +10,41 @@
         <div class="box-header">
             <h3 class="box-title">Alterar senha</h3>
         </div>
+        
         <div class="box-body">
+            <?php 
+                if ($msgValidSch==1) {
+            ?>  
+            <div class="box box-solid box-danger">
+                <div class="box-header">
+                    <h3 class="box-title">Atenção</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-danger btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-danger btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body clearfix">
+                    <p>
+                        Não é possisvel fazer este agendamentos!<br>
+                        <ul style="list-style: none;">
+                            <li>1) Você já tem um agendamento neste horario;</li>
+                            <li>2) Outra pessoa já está com o horario agendado;</li>
+                        </ul>
+                    </p>
+                    <div class="box-tools pull-right">
+                        <a href="/agenda/cadastrar-agenda" class="btn btn-primary btn-flat">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+            <?php      
+                }
+            ?>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="form-group">
                         <label for="room_sch">Data</label>
                         <select name="room_sch" id="room_sch" class="form-control room_sch">
-                            <option>Selecione</option>
+                            <option value="0">Selecione</option>
                             <?php 
                             $room = $model->selectRoomAll();
                             if ((count($room) > 0) && is_array($room)) { 

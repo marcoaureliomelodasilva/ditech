@@ -21,7 +21,7 @@
         </form>
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index.html">
+                <a href="/agenda/listar-agenda-hoje">
                     <i class="fa fa-table"></i> <span>Agenda de hoje</span>
                 </a>
             </li>

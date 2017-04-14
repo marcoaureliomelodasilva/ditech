@@ -2,11 +2,16 @@
 $model = new model\Scheduling();
 
 $this->setPostArray($_POST);
-
+$msgValidSch=0;
 switch ($this->post->action) {
     case 'editar-agenda':
-        if (isset($this->get->param3)) {
-            $model->updateScheduling($this->get->param3,$this->post);
+        $validate = $model->valididateScheduling($this->post);
+        if ($validate) {
+           $msgValidSch=1;
+        }else{
+            if (isset($this->get->param3)) {
+                $model->updateScheduling($this->get->param3,$this->post);
+            }
         }
         break;
     case 'exclui-agenda':
@@ -15,10 +20,12 @@ switch ($this->post->action) {
         }
         break;
     case 'cadastrar-agenda':
-        $model->insertScheduling($this->post);
-        break;
-    case 'alterar-agenda':
-        $model->updateScheduling($this->get->param3,$this->post);
+        $validate = $model->valididateScheduling($this->post);
+        if ($validate) {
+           $msgValidSch=1;
+        }else{
+            $model->insertScheduling($this->post);
+        }
         break;
 }
 

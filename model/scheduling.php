@@ -50,6 +50,32 @@ class Scheduling
 		return $query;
 	}
 
+	public function selectSchedulingToday()
+	{ 
+		$query = "
+			SELECT 
+				r.res_no,
+				r.date,
+				r.hour,
+				r.descript,
+				u.full_name,
+				m.room_name
+			FROM reservations r
+				LEFT JOIN meeting_rooms m
+					ON r.mee_no = m.mee_no
+				LEFT JOIN user u
+					ON r.use_no = u.use_no
+			WHERE
+				r.date=CURDATE()
+			ORDER BY date DESC
+		";
+		$query = $this->db->conn->prepare($query);
+		$query->execute();
+		$query = $query->fetchAll(FETCH_OBJ);
+		return $query;
+	}
+
+
 	public function selectSchedulingIdUser($idUser)
 	{ 
 		$query = "
@@ -157,7 +183,31 @@ class Scheduling
 		$query->execute();
 	}
 
-
+	public function valididateScheduling($post)
+	{ 
+        $idUser=$post->use_no;
+        $idRoom=$post->room_sch;
+        $date=$post->date_sch;
+        $time=$post->hour_sch;
+		$query = "
+			SELECT 
+               	r.res_no
+			FROM reservations r
+				LEFT JOIN meeting_rooms m
+					ON r.mee_no = m.mee_no
+				LEFT JOIN user u
+					ON r.use_no = u.use_no
+			WHERE
+				(m.mee_no = {$idRoom} AND (r.date ='{$date}' AND '{$time}' BETWEEN r.hour AND ADDTIME(SEC_TO_TIME(3600), r.hour))) OR
+                (u.use_no = {$idUser} AND (r.date ='{$date}' AND '{$time}' BETWEEN r.hour AND ADDTIME(SEC_TO_TIME(3600), r.hour)))
+            LIMIT 1;
+		";
+		$query = $this->db->conn->prepare($query);
+		$query->execute();
+		$row = $query->rowCount();
+		$valid = ($row > 0)? 1 : 0 ;
+		return $valid;
+	}
 
 }
 
