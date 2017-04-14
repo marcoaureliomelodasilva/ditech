@@ -1,4 +1,12 @@
-<aside class="left-side sidebar-offcanvas">
+<? 
+    $idUser = (isset($_SESSION["idUser"]))? $_SESSION["idUser"] : 0 ;
+    $admin = new model\AdminUser();
+    $data = $admin->selectUsersId($idUser);
+    $first_name = explode(' ', $data[0]->full_name);
+    $first_name = ucfirst ($first_name[0]);
+?>
+
+<aside class="left-side sidebar-offcanvas"> 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -7,7 +15,7 @@
                 <img src="../../media/img/avatar3.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Olá, Fulano</p>
+                <p><?=$first_name;?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -68,6 +76,7 @@
                     </li>
                 </ul>
             </li>
+            <? if ($data[0]->admin==1){ ?>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user-secret"></i> 
@@ -87,6 +96,7 @@
                     </li>
                 </ul>
             </li>
+            <? } ?>
         </ul>
     </section>
 </aside>

@@ -40,7 +40,8 @@ class AdminUser
 			SELECT 
 				full_name, 
 				email, 
-				status
+				status,
+				admin
 			FROM 
 				user 
 			WHERE 

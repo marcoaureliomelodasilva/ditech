@@ -5,7 +5,7 @@
 <div class="col-md-6">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Lista de salas</h3>
+            <h3 class="box-title">Listar salas</h3>
             <div class="box-tools pull-right">
                 <a href="/admin/cadastrar-sala" style="color:#FFF;" class="btn btn-primary btn-sm">
                     Nova sala

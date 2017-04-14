@@ -13,7 +13,7 @@ $usuariosOrdenados=$v->listAll();
 <div class="col-md-6">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Lista de usuários</h3>
+            <h3 class="box-title">Listar usuários</h3>
         </div><!-- /.box-header -->
         <div class="box-body" style="overflow: auto;height: 400px;">
             <table class="table table-bordered table-responsive table-condensed">

@@ -5,7 +5,7 @@
 <div class="col-md-6">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Lista de usuários</h3>
+            <h3 class="box-title">Listar agenda</h3>
             <div class="box-tools pull-right">
                 <a href="/agenda/cadastrar-agenda" style="color:#FFF;" class="btn btn-primary btn-sm">
                     Novo Agendamento

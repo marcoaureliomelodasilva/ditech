@@ -9,7 +9,7 @@
 <div class="col-lg-6 col-xs-6">
     <div class="box box-danger">
         <div class="box-header">
-            <h3 class="box-title">Dados do usuário</h3>
+            <h3 class="box-title">Meus dados</h3>
         </div>
         <div class="box-body">
             <div class="row">
@@ -21,11 +21,6 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" value="<?=$data->email;?>" class="form-control"  placeholder="">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="status" <?=$this->boolResult($data->status,'checked', false);?>> Ativar / Inativar
-                        </label>
                     </div>
                 </div>
             </div>

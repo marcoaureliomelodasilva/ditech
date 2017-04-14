@@ -9,7 +9,7 @@
 <div class="col-lg-6 col-xs-6">
     <div class="box box-danger">
         <div class="box-header">
-            <h3 class="box-title">Dados do usuário</h3>
+            <h3 class="box-title">Editar sala</h3>
         </div>
         <div class="box-body">
             <div class="row">

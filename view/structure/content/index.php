@@ -6,10 +6,6 @@
             Agendamento de salas
             <small>Painel de Controle</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active">Usuarios</li>
-        </ol>
     </section>
 
     <!-- Conteudo principal -->
