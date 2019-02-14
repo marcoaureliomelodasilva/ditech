@@ -1,4 +1,4 @@
-SELECT MAMS
+SELECT
 	d.dept_name AS dep_name, 
     concat(e.first_name, ' ', e.last_name) AS full_name,
 	IF(
